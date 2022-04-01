@@ -26,23 +26,43 @@ Things you may want to cover:
 
 # Rails documentation
 
-1. Generate controller, route and view
+- Generate controller, route and view
 
-```rails generate controller login index```
+```rails generate controller <controller_name> index```
 
-2. Generate model
+- Generate model and migration
 
-```rails g model <model_name> content:text```
+```rails g model <model_name> <column_name>:string <column_name>:string```
 
-3. Database migration
+Example
+
+```rails g model user name:string password:string email:string```
+
+- Migration
 
 ```rails db:migrate```
 
-4. Rails console
+- Add new column to existing table in database with existing model
+
+```rails g migration <model_name>```
+
+Then check ```db/migrate```, there must be new file. We can add copy of code below to those file inside ```def change``` method.
+
+```add_column :users, :image_name, :string```
+
+Then
+
+```rails db:mgrate```
+
+- Delete Migration
+
+```rails d migration table_name```
+
+- Rails console
 
 ```rails console```
 
-5. Add new data to database through console
+- Add new data to database through console
 
 ```rails console```
 
@@ -50,9 +70,7 @@ Things you may want to cover:
 
 ```user.save```
 
-Then check database
-
-6. Getting first value from database through console
+- Getting first value from database through console
 
 ```rails console```
 
@@ -64,7 +82,7 @@ or it can be simplyfy as
 
 ```<model_name>.all[0].name```
 
-7. Getting the data by id through console
+- Getting the data by id through console
 
 ```rails console```
 
